@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin-bottom: 10px;  
+    padding: 0;
+}
+
+body{
+    background: url(img/1.jpg);
+    background-size: cover;
+    color: black;
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+}
+
+form{
+    box-shadow: 2px 6px 100px #ffffff;
+    
+}
+
+.checked {
+    color: orange;
+    
+}
+.container{
+    width: 620px;
+}
+
+.container-fluid{
+   
+    margin-top: 20px;
+        
+
+}
+
+.btn-pink-moon {
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fc6767, #ec008c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+
+.btn-rounded {
+    border-radius: 35px;
+}
+section{
+    background-color: #ffffff;
+}

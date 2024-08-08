@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="application_details(date)" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4af82e7c-b76c-4e85-b0e5-4decd4401a21">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="date1" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="date2" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_applicationform.`fullname` AS tbl_applicationform_fullname,
+     tbl_applicationform.`jobloacation` AS tbl_applicationform_jobloacation,
+     tbl_applicationform.`desgnname` AS tbl_applicationform_desgnname,
+     tbl_applicationform.`select_category` AS tbl_applicationform_select_category,
+     tbl_applicationform.`status` AS tbl_applicationform_status,
+     tbl_applicationform.`date` AS tbl_applicationform_date
+FROM
+     `tbl_applicationform` tbl_applicationform
+where date between $P{date1} and $P{date2}]]>
+	</queryString>
+	<field name="tbl_applicationform_fullname" class="java.lang.String"/>
+	<field name="tbl_applicationform_jobloacation" class="java.lang.String"/>
+	<field name="tbl_applicationform_desgnname" class="java.lang.String"/>
+	<field name="tbl_applicationform_select_category" class="java.lang.String"/>
+	<field name="tbl_applicationform_status" class="java.lang.String"/>
+	<field name="tbl_applicationform_date" class="java.lang.String"/>
+	<group name="tbl_applicationform_fullname">
+		<groupExpression><![CDATA[$F{tbl_applicationform_fullname}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="-21" y="7" width="843" height="24" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="6a4696ac-2839-4b0e-95c9-78b7959ed707"/>
+					<textField>
+						<reportElement style="SubTitle" x="68" y="0" width="290" height="24" forecolor="#736343" uuid="d6ba1f91-6a18-4bb2-9fa4-2c3f021cdfdd"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{tbl_applicationform_fullname}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="126" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="225" y="0" width="415" height="62" uuid="102fd00d-5157-4d98-b8e3-7cfc6914f300"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Applied Students]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="9441f6ae-a653-4c04-8842-d2dce1fd6f79"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="-18" y="0" width="201" height="15" forecolor="#736343" uuid="1c563a79-5b45-4fab-b65b-0525480201f2"/>
+				<text><![CDATA[Job location         Fullname]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="0" width="118" height="15" forecolor="#736343" uuid="032fd3a5-aee3-48bd-a9b7-06b0af042ce6"/>
+				<text><![CDATA[Designation name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="393" y="0" width="87" height="15" forecolor="#736343" uuid="f1b7bef2-a18d-4e0e-8a07-dd7c822b80a4"/>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="519" y="0" width="121" height="15" forecolor="#736343" uuid="d23e90d4-feea-4e34-8685-9c0e8866ec05"/>
+				<text><![CDATA[Application status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="682" y="0" width="118" height="15" forecolor="#736343" uuid="3b5d8d16-e8d4-4d95-8922-fd19d1f3ef28"/>
+				<text><![CDATA[Applied date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="806afdb8-fece-438a-a2ba-062f28ae2fde"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="160" height="15" uuid="9ff5a0a8-d87a-42c0-a935-a1a5aeaa80aa"/>
+					<textFieldExpression><![CDATA[$F{tbl_applicationform_jobloacation}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="237" y="0" width="100" height="15" uuid="4919027d-683b-4031-b94b-ac29f7db2bf1"/>
+					<textFieldExpression><![CDATA[$F{tbl_applicationform_desgnname}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="403" y="0" width="77" height="15" uuid="3d2a3819-b260-4658-9ca1-3426cb33d518"/>
+					<textFieldExpression><![CDATA[$F{tbl_applicationform_select_category}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="533" y="0" width="107" height="15" uuid="0180fe04-ce0c-44a3-8609-af4f2848074e"/>
+					<textFieldExpression><![CDATA[$F{tbl_applicationform_status}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="682" y="0" width="118" height="15" uuid="60607025-8241-4714-b73b-bffdd0d112ca"/>
+					<textFieldExpression><![CDATA[$F{tbl_applicationform_date}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="80e7dfce-3b2c-4b43-a76f-b1f6f7929102"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="0c6b5bb7-f6e4-4749-81de-2eb59e72af25"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="5a22a0d5-2f15-46e3-a5cb-831f326a9cda"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="a30a6fb0-eb40-476d-ab9e-8bdbea9d52a2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="c118896e-bfc6-4961-9a1b-494f66b1c8ec"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
